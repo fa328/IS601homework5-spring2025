@@ -2,7 +2,7 @@
 import decimal
 from decimal import Decimal
 # from typing import Self
-import pytest
+import pytest # type: ignore
 # from calculator.calculation import Calculations
 from calculator.operations import add, subtract, multiply, divide
 
