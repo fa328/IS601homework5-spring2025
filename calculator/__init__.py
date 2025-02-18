@@ -1,21 +1,3 @@
-<<<<<<< HEAD
-'''Calculator Level 1 Master'''
-def add(a,b):
-    '''Test that addition function works '''    
-    return a + b
-
-def subtract(a,b):
-    '''Test that subtract function works '''    
-    return a - b
-
-def multiply(a, b):
-    '''Test that multiply function works '''    
-    return a * b
-
-def divide(a, b):
-    '''Test that divide function works '''    
-    return a / b
-=======
 '''My Calculator Test: Part 3'''
 import pytest # type: ignore
 from calculator.calculation import Calculations
@@ -72,4 +54,3 @@ calc = Calculator()
 result = calc.add(2, 2)
 CalculationsHistory.add_history(result)
 print(CalculationsHistory.get_history())
->>>>>>> part3
