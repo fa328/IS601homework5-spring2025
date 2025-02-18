@@ -12,7 +12,7 @@ class Calculations:  # pylint: disable=too-few-public-methods
         return self.operation(self.a, self.b)
 
 def add(a, b):
-    '''Add function'''
+    '''Addition function'''
     return a + b
 
 calc = Calculations(2, 2, add)
