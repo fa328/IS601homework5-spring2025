@@ -40,7 +40,7 @@ class AddCommand(Command): # pylint: disable=too-few-public-methods
         self.b = b
 
     def execute(self):
-        # Assuming `add` is now a utility function in calculator.py
+        #add is now a using function in calculator.py
         result = add(self.a, self.b)
         print(f"Result: {result}")
 
@@ -51,7 +51,7 @@ class SubtractCommand(Command): # pylint: disable=too-few-public-methods
         self.b = b
 
     def execute(self):
-        # Assuming `subtract` is now a utility function in calculator.py
+        #Subtract is now a using function in calculator.py
         result = subtract(self.a, self.b)
         print(f"Result: {result}")
 
@@ -62,7 +62,7 @@ class MultiplyCommand(Command): # pylint: disable=too-few-public-methods
         self.b = b
 
     def execute(self):
-        # Assuming `multiply` is now a utility function in calculator.py
+        # multiply is now a using function in calculator.py
         result = multiply(self.a, self.b)
         print(f"Result: {result}")
 
@@ -73,7 +73,7 @@ class DivideCommand(Command): # pylint: disable=too-few-public-methods
         self.b = b
 
     def execute(self):
-        # Assuming `divide` is now a utility function in calculator.py
+        # divide is now a using function in calculator.py
         if self.b == 0:
             print("Error: Division by zero")
         else:
