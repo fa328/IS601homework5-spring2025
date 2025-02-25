@@ -3,6 +3,9 @@ import sys
 from decimal import Decimal, InvalidOperation
 from calculator import Calculator
 
+from app import App
+
+
 def calculate_and_print(a, b, operation_name):
     '''calculate and print function'''
     operation_mappings = {
@@ -36,6 +39,11 @@ def main():
 
     _, a, b, operation = sys.argv
     calculate_and_print(a, b, operation)
+
+# You must put this in your main.py
+# because this forces the program to start when you run it from the command line.
+    app = App()
+    app.start()
 
 if __name__ == '__main__':
     main()

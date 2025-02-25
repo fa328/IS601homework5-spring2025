@@ -1,19 +1,21 @@
+'''Command App'''
 from abc import ABC, abstractmethod
+from calculator import add, subtract, multiply, divide
 
-from app.commands import add, divide, multiply, subtract
-from tests.test_operations import Calculations
-
-
-class Command(ABC):
+class Command(ABC): # pylint: disable=too-few-public-methods
+    '''command function'''
     @abstractmethod
     def execute(self):
-        pass
+        '''execute function'''
+
 
 class CommandHandler:
+    '''CommandHandler'''
     def __init__(self):
         self.commands = {}
 
     def register_command(self, command_name: str, command: Command):
+        '''Register Command'''
         self.commands[command_name] = command
 
     def execute_command(self, command_name: str):
@@ -23,31 +25,57 @@ class CommandHandler:
         else:
             print(f"No such command: {command_name}")
         """
-        """Easier to ask for forgiveness than permission (EAFP) - Use when its going to most likely work"""
+        #Easier to ask for forgiveness than permission
+        # (EAFP) - Use when its going to most likely work
         try:
             self.commands[command_name].execute()
         except KeyError:
             print(f"No such command: {command_name}")
 
 # add, subtract, multiply, and divide Command Classes
-class AddCommand(Command):
-    def execute(self, a: float, b: float):
-        calculation = Calculations(a, b, add)
-        return calculation.get_result()
-    
-class SubtractCommand(Command):
-    def execute(self,a: float, b: float):
-        calculation = Calculations(a, b, subtract)
-        return calculation.get_result()
+class AddCommand(Command): # pylint: disable=too-few-public-methods
+    '''Add Command'''
+    def __init__(self, a: float, b: float):
+        self.a = a
+        self.b = b
 
-class MultiplyCommand(Command):
-    def execute(self, a: float, b: float):
-        calculation = Calculations(a, b, multiply)
-        return calculation.get_result()
-    
-class DivideCommand(Command):
-    def execute(self, a: float, b: float):
-        if b == 0:
-            return "Error: Division by zero"
-        calculation = Calculations(a, b, divide)
-        return calculation.get_result()
+    def execute(self):
+        # Assuming `add` is now a utility function in calculator.py
+        result = add(self.a, self.b)
+        print(f"Result: {result}")
+
+class SubtractCommand(Command): # pylint: disable=too-few-public-methods
+    '''Subtract Command'''
+    def __init__(self, a: float, b: float):
+        self.a = a
+        self.b = b
+
+    def execute(self):
+        # Assuming `subtract` is now a utility function in calculator.py
+        result = subtract(self.a, self.b)
+        print(f"Result: {result}")
+
+class MultiplyCommand(Command): # pylint: disable=too-few-public-methods
+    '''Multiply Command'''
+    def __init__(self, a: float, b: float):
+        self.a = a
+        self.b = b
+
+    def execute(self):
+        # Assuming `multiply` is now a utility function in calculator.py
+        result = multiply(self.a, self.b)
+        print(f"Result: {result}")
+
+class DivideCommand(Command): # pylint: disable=too-few-public-methods
+    '''Divide Command'''
+    def __init__(self, a: float, b: float):
+        self.a = a
+        self.b = b
+
+    def execute(self):
+        # Assuming `divide` is now a utility function in calculator.py
+        if self.b == 0:
+            print("Error: Division by zero")
+        else:
+            result = divide(self.a, self.b)
+            print(f"Result: {result}")
