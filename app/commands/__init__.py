@@ -79,3 +79,13 @@ class DivideCommand(Command): # pylint: disable=too-few-public-methods
         else:
             result = divide(self.a, self.b)
             print(f"Result: {result}")
+
+class MenuCommand(Command):  # pylint: disable=too-few-public-methods
+    '''Menu Command'''
+    def __init__(self, command_handler: CommandHandler):
+        self.command_handler = command_handler
+
+    def execute(self):
+        print("\nMenu Commands:")
+        for command in self.command_handler.commands:
+            print(command)
