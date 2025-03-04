@@ -1,10 +1,8 @@
-'''Main.py function'''
+'''Main.py'''
 import sys
 from decimal import Decimal, InvalidOperation
 from calculator import Calculator
-
 from app import App
-
 
 def calculate_and_print(a, b, operation_name):
     '''calculate and print function'''
@@ -18,30 +16,34 @@ def calculate_and_print(a, b, operation_name):
     # Unified error handling for decimal conversion
     try:
         a_decimal, b_decimal = map(Decimal, [a, b])
-        result = operation_mappings.get(operation_name) # Use get to handle unknown operations
-        if result:
-            print(f"The result of {a} {operation_name} {b} "
-                   f"is equal to {result(a_decimal, b_decimal)}")
+
+        # Get the operation function; if operation is not valid, print error
+        operation = operation_mappings.get(operation_name)
+        if operation:
+            result = operation(a_decimal, b_decimal)
+            print(f"The result of {a} {operation_name} {b} is equal to {result}")
         else:
             print(f"Unknown operation: {operation_name}")
     except InvalidOperation:
         print(f"Invalid number input: {a} or {b} is not a valid number.")
     except ZeroDivisionError:
         print("Error: Division by zero.")
-    except (ValueError, KeyError) as e: # Catch-all for unexpected errors
+    except (ValueError, KeyError) as e:  # Catch-all for unexpected errors
         print(f"An error occurred: {e}")
 
 def main():
     '''Main function'''
     if len(sys.argv) != 4:
-        print("Usage: python calculator_main.py <number1> <number2> <operation>")
+        print("Usage: python main.py <number1> <number2> <operation>")
         sys.exit(1)
 
+    # Unpack arguments correctly
     _, a, b, operation = sys.argv
+
+    # Call the calculate and print function
     calculate_and_print(a, b, operation)
 
-# You must put this in your main.py
-# because this forces the program to start when you run it from the command line.
+    # Initialize and start the app (optional, depending on your design)
     app = App()
     app.start()
 
