@@ -5,7 +5,7 @@ import importlib
 import logging
 import logging.config
 import sys
-from dotenv import load_dotenv # type: ignore
+from dotenv import load_dotenv
 from app.commands import CommandHandler
 from app.commands import Command
 
