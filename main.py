@@ -17,7 +17,7 @@ def calculate_and_print(a, b, operation_name):
     try:
         a_decimal, b_decimal = map(Decimal, [a, b])
 
-        # Get the operation function; if operation is not valid, print error
+        # if operation is not valid, print error
         operation = operation_mappings.get(operation_name)
         if operation:
             result = operation(a_decimal, b_decimal)
@@ -37,13 +37,13 @@ def main():
         print("Usage: python main.py <number1> <number2> <operation>")
         sys.exit(1)
 
-    # Unpack arguments correctly
+    # Operation
     _, a, b, operation = sys.argv
 
     # Call the calculate and print function
     calculate_and_print(a, b, operation)
 
-    # Initialize and start the app (optional, depending on your design)
+    # Initialize and start the app
     app = App()
     app.start()
 
