@@ -1,6 +1,7 @@
 '''Test Main function'''
 import pytest # type: ignore
 from main import calculate_and_print  # Ensure this import matches your project structure
+from app import App
 
 # Parameterize the test function to cover different operations and scenarios, including errors
 @pytest.mark.parametrize("a_string, b_string, operation_string, expected_string", [
@@ -21,3 +22,15 @@ def test_calculate_and_print(a_string, b_string, operation_string,expected_strin
     calculate_and_print(a_string, b_string, operation_string)
     captured = capsys.readouterr()
     assert captured.out.strip() == expected_string
+
+def test_app_get_environment_variable():
+    """Test app environment Variable"""
+    app = App()
+#   Retrieve the current environment setting
+    current_env = app.get_environment_variable('ENVIRONMENT')
+    # Assert that the current environment is what you expect
+    assert current_env in [
+        'DEVELOPMENT', 
+        'TESTING', 
+        'PRODUCTION'
+    ], f"Invalid ENVIRONMENT: {current_env}"

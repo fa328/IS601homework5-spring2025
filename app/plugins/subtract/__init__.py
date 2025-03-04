@@ -1,13 +1,14 @@
 '''subtrat funtion'''
 import sys
+import logging
 from app.commands import Command
 
 
 class SubtractCommand(Command):
     '''SubtractCommand'''
     def execute(self):
-        print('I will subtract a number')
+        logging.info('I will subtract a number')
 
     def undo(self):
         '''Undo fuction'''
-        print('Undo the subtraction')
+        logging.info('Undo the subtraction')

@@ -1,13 +1,14 @@
 '''divide funtion'''
 import sys
+import logging
 from app.commands import Command
 
 
 class DivideCommand(Command):
     '''DividetCommand'''
     def execute(self):
-        print('I will divide a number')
+        logging.info('I will divide a number')
 
     def undo(self):
         '''Undo fuction'''
-        print('Undo the divide')
+        logging.info('Undo the divide')
